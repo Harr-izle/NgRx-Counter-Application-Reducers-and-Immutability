@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="heading">
+        <h1>NgRx Counter App</h1>
+
+        <div class="counter">
+            <h2>{{count$ | async}}</h2>
+        </div>
+        <div class="num">
+            <input type="number" [(ngModel)]="initialCount" (ngModelChange)="onSetCount()" placeholder="Enter count">
+            <div class="btn">
+                <button class="btn-increment" (click)="onIncrementBy()">Increment By</button>
+                <button class="btn-decrement" (click)="onDecrementBy()">Decrement By</button>
+                <button class="btn-multiply" (click)="onMultiply()">Multiply</button> 
+            </div>
+        </div>
+
+        <div class="btn">
+            <button class="btn-increment" (click)="increment()">Increment</button>
+            <button class="btn-decrement" (click)="decrement()">Decrement</button>
+            <button class="btn-reset" (click)="reset()">Reset</button>
+            <button class="btn-undo" (click)="onUndo()">Undo</button>
+        </div>
+
+        <div class="history">
+            <h3>Count History:</h3>
+            <ul>
+                <li *ngFor="let count of history$ | async">Current Count: {{ count }}</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
